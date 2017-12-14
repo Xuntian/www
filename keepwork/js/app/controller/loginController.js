@@ -7,7 +7,7 @@ define([
     app.registerController("loginController",['$scope', function ($scope) {
 		$scope.errMsg = "Warning, there is an error!";
 		$scope.login = function(){
-
+			//alert("asds");
 		}
 	}]);
 
