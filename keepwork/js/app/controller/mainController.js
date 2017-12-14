@@ -17,7 +17,7 @@ define([
 		});
 
 		if (!urlObj.username || urlObj.username == "www") {
-			var controllerName = "controller/" + (urlObj.sitename || "editor") + "Controller";
+			var controllerName = "controller/" + (urlObj.sitename || "login") + "Controller";
 			require([
 				controllerName,
 			], function(htmlContent){
@@ -25,5 +25,13 @@ define([
 				$scope.$apply();
 			});
 		}
+
+		var footerControllerName = "controller/" + "footer" + "Controller";
+		require([
+			footerControllerName,
+		], function(htmlContent){
+			$scope.footerContent = htmlContent;
+			$scope.$apply();
+		});
 	}]);
 });
