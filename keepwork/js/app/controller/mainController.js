@@ -2,7 +2,7 @@
 define([
 	'app',
     'helper/mdwiki',
-    'helper/util',
+	'helper/util',
 ], function (app, mdwiki, util) {
     app.registerController("mainController",['$scope', function ($scope) {
 		var urlObj = util.parseUrl();
@@ -16,7 +16,7 @@ define([
 			$scope.$apply();
 		});
 
-		if (!urlObj.username || urlObj.username == "www") {
+		if (!urlObj.username || urlObj.username == "dashboard") {
 			var controllerName = "controller/" + (urlObj.sitename || "login") + "Controller";
 			require([
 				controllerName,
@@ -25,7 +25,7 @@ define([
 				$scope.$apply();
 			});
 		}
-
+		
 		var footerControllerName = "controller/" + "footer" + "Controller";
 		require([
 			footerControllerName,
@@ -33,5 +33,6 @@ define([
 			$scope.footerContent = htmlContent;
 			$scope.$apply();
 		});
+		
 	}]);
 }); 
